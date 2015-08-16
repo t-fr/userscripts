@@ -1,13 +1,21 @@
 // ==UserScript==
-// @name        Der Leistungsschutzrecht-Warner
-// @namespace   69e11229c3698f61f05447e21fe5e522
-// @description Warnt auf Seiten mit einem roten Balken, falls diese das Leistungsschutzrecht unterstützt. Nutzt die Blacklist von http://leistungsschutzrecht-stoppen.d-64.org/.
-// @include     *
-// @version     1
-// @grant       GM_xmlhttpRequest
-// @grant       GM_getValue
-// @grant       GM_setValue
+// @name           Der Leistungsschutzrecht-Warner
+// @name:de        Der Leistungsschutzrecht-Warner
+// @namespace      tfr
+// @description    Warns on pages supporting the extended copyright for press publishers with a red bar. Uses the blacklist from http://leistungsschutzrecht-stoppen.d-64.org/.
+// @description:de Warnt auf Seiten mit einem roten Balken, falls diese das Leistungsschutzrecht unterstützt. Nutzt die Blacklist von http://leistungsschutzrecht-stoppen.d-64.org/.
+// @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @compatible     firefox
+// @compatible     chrome
+// @oujs:author    tfr
+// @include        *
+// @version        2
+// @grant          GM_xmlhttpRequest
+// @grant          GM_getValue
+// @grant          GM_setValue
 // ==/UserScript==
+
+/* Version 2: update metadata */
 
 /* Dieses Skript steht unter CC0:
  * http://creativecommons.org/publicdomain/zero/1.0/deed.de */
