@@ -1,6 +1,13 @@
 // ==UserScript==
 // @name           Better YouTube favicon
-// @namespace   969a1cf76bf42aaaa5a210792ebb18a9
+// @name:de        Besseres YouTube-Favicon
+// @namespace      tfr
+// @description    Replaces the meaningless play symbol with a YouTube-text favicon.
+// @description:de Ersetzt das nichtssagende Play-Symbol mit einem Youtube-Text-Favicon.
+// @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @compatible     firefox
+// @compatible     chrome
+// @oujs:author    tfr
 // @include        http://youtube.com/*
 // @include        https://youtube.com/*
 // @include        http://*.youtube.com/*
@@ -13,10 +20,11 @@
 // @include        https://youtu.be/*
 // @include        http://*.youtu.be/*
 // @include        https://*.youtu.be/*
-// @version        1
+// @version        2
 // @grant          none
-// @description Replaces the meaningless play symbol with a YouTube-text favicon. / Ersetzt das nichtssagende Play-Symbol mit einem Youtube-Text-Favicon.
 // ==/UserScript==
+
+/* Version 2: Update metadata, add German description */
 
 /* Dieses Skript steht unter CC0 / This script is licensed under CC0:
  * http://creativecommons.org/publicdomain/zero/1.0/deed.de
