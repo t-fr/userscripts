@@ -1,3 +1,5 @@
+**Hinweis:** Zurzeit funktioniert der Player auf https://video.golem.de/... nicht. Bitte die URL der Seite in http://video.golem.de/... ändern.
+
 Wandelt den Golem.de-eigenen Flash-Player in einen HTML5-Player um. Dazu wird der native Firefox-Player benutzt.
 
 **Funktionen:**
