@@ -1,13 +1,17 @@
 // ==UserScript==
-// @name        HTML5-Video für Golem.de
-// @namespace   6017e003b758808458065cafc927a2aa
-// @description Wandelt den Golem.de-eigenen Flash-Player in einen HTML5-Player um.
-// @include     http://www.golem.de/*
-// @include     https://www.golem.de/*
-// @include     http://video.golem.de/*
-// @include     https://video.golem.de/*
-// @version     4
-// @grant       GM_xmlhttpRequest
+// @name           HTML5-Video für Golem.de
+// @namespace      tfr
+// @description    Wandelt den Golem.de-eigenen Flash-Player in einen HTML5-Player um.
+// @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @compatible     firefox
+// @incompatible   chrome
+// @oujs:author    tfr
+// @include        http://www.golem.de/*
+// @include        https://www.golem.de/*
+// @include        http://video.golem.de/*
+// @include        https://video.golem.de/*
+// @version        5
+// @grant          GM_xmlhttpRequest
 // ==/UserScript==
 
 /* Dieses Skript steht unter CC0:
