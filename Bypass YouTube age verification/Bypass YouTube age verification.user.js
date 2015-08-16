@@ -1,15 +1,20 @@
 // ==UserScript==
-// @name        Bypass YouTube age verification
-// @name:de     Youtube-Altersverifikation umgehen
-// @namespace   tfr
-// @description Bypass YouTube age verification without logging in.
+// @name           Bypass YouTube age verification
+// @name:de        Youtube-Altersverifikation umgehen
+// @namespace      tfr
+// @description    Bypass YouTube age verification without logging in.
 // @description:de Umgehe die Altersverifikation ohne Einloggen.
-// @include     http://www.youtube.com/watch*
-// @include     https://www.youtube.com/watch*
-// @version     4
-// @grant       none
+// @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @compatible     firefox
+// @compatible     chrome
+// @oujs:author    tfr
+// @include        http://www.youtube.com/watch*
+// @include        https://www.youtube.com/watch*
+// @version        5
+// @grant          none
 // ==/UserScript==
 
+/* Version 5: Update metadata block */ 
 /* Version 4: Correct string search index from 1 to -1 */ 
 /* Version 3: https://greasyfork.org/es/forum/discussion/4509 */ 
 /* Version 2: Error in code, bypass in playlists was not working */
