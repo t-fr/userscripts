@@ -1,0 +1,1 @@
+This script on: [GitHub](https://github.com/t-fr/userscripts/tree/master/Better%20YouTube%20favicon) • [Greasy Fork](https://greasyfork.org/scripts/1197-better-youtube-favicon) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Better_YouTube_favicon)
