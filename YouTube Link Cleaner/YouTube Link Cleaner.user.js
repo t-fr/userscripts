@@ -2,11 +2,15 @@
 // @name           YouTube Link Cleaner
 // @namespace      tfr
 // @description    Removes unneeded parameters and redirection pages from YouTube links.
+// @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @compatible     firefox
+// @compatible     chrome
+// @oujs:author    tfr
 // @include        http://youtube.com/*
 // @include        http://www.youtube.com/*
 // @include        https://youtube.com/*
 // @include        https://www.youtube.com/*
-// @version        4
+// @version        5
 // @grant          none
 // ==/UserScript==
  
@@ -14,6 +18,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/deed.de
  * http://creativecommons.org/publicdomain/zero/1.0/deed.en */
  
+/* Version 5: update metadata */
 /* Version 4: change URL parameters without reloading */
  
 /* If on a redirect page, redirect */
