@@ -1,4 +1,4 @@
-// ==UserScript== 
+// ==UserScript==
 // @name           Youtube: Show related videos if missing
 // @name:de        Youtube: Zeige Videovorschläge an, falls sie fehlen
 // @namespace      tfr
