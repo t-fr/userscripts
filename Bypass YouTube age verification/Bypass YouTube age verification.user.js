@@ -5,8 +5,9 @@
 // @description    Bypass YouTube age verification without logging in.
 // @description:de Umgehe die Altersverifikation ohne Einloggen.
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
-// @compatible     firefox
-// @compatible     chrome
+// @compatible     firefox Works with Firefox and Greasemonkey
+// @compatible     chrome Works with Chrome and Tampermonkey
+// @compatible     opera Works with Opera and Tampermonkey Beta or Violent monkey
 // @oujs:author    tfr
 // @include        http://www.youtube.com/watch*
 // @include        https://www.youtube.com/watch*

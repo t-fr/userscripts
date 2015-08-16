@@ -5,8 +5,9 @@
 // @description    Removes unneeded parameters and redirection pages from YouTube links.
 // @description:de Entfernt unnötige Parameter und Weiterleitungsseiten aus YouTube-Links.
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
-// @compatible     firefox
-// @compatible     chrome
+// @compatible     firefox Works with Firefox and Greasemonkey
+// @compatible     chrome Works with Chrome and Tampermonkey
+// @compatible     opera Works with Opera and Tampermonkey Beta or Violent monkey
 // @oujs:author    tfr
 // @include        http://youtube.com/*
 // @include        http://www.youtube.com/*

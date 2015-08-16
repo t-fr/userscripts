@@ -5,8 +5,9 @@
 // @description    On pages of age-restricted videos, related videos are missing. This script re-adds the related videos.
 // @description:de Auf Seiten altersbeschränkter Videos fehlen die Videovorschläge. Dieses Skript fügt sie wieder hinzu.
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
-// @compatible     firefox
-// @incompatible   chrome
+// @compatible     firefox Works with Firefox and Greasemonkey
+// @incompatible   chrome Does not work with Chrome and Tampermonkey
+// @compatible     opera Works with Opera and Violent monkey, but not with Tampermonkey Beta
 // @oujs:author    tfr
 // @include        http://www.youtube.com/watch?*
 // @include        https://www.youtube.com/watch?*

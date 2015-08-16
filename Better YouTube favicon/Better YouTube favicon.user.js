@@ -5,8 +5,9 @@
 // @description    Replaces the meaningless play symbol with a YouTube-text favicon.
 // @description:de Ersetzt das nichtssagende Play-Symbol mit einem Youtube-Text-Favicon.
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
-// @compatible     firefox
-// @compatible     chrome
+// @compatible     firefox Works with Firefox and Greasemonkey
+// @compatible     chrome Works with Chrome and Tampermonkey
+// @incompatible   opera Does not work with Opera and Tampermonkey Beta or Violent monkey
 // @oujs:author    tfr
 // @include        http://youtube.com/*
 // @include        https://youtube.com/*
