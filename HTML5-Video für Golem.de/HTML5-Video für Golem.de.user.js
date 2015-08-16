@@ -10,9 +10,11 @@
 // @include        https://www.golem.de/*
 // @include        http://video.golem.de/*
 // @include        https://video.golem.de/*
-// @version        5
+// @version        6
 // @grant          GM_xmlhttpRequest
 // ==/UserScript==
+
+/* Version 6: Probleme mit doppelten Playern und Verzögerungen lösen */
 
 /* Dieses Skript steht unter CC0:
  * http://creativecommons.org/publicdomain/zero/1.0/deed.de */
@@ -31,11 +33,17 @@ function HTML5VideoDisabled() {
 
 function ReplacePlayers() {
   if(!HTML5VideoDisabled()) {
+    var found = false;
     for(var i = 0; i < window.document.getElementsByTagName("div").length; i++) {
       if(typeof window.document.getElementsByTagName("div")[i].id !== "undefined" && window.document.getElementsByTagName("div")[i].id.search(/^NVBPlayer[0-9]*$/) >= 0) {
+        found = true;
         ReplacePlayer(window.document.getElementsByTagName("div")[i].id);
       }
     }
+    if(!found)
+      {
+        window.setTimeout(ReplacePlayers, 500)
+      }
   }
 }
 function ReplacePlayer(divId) {
@@ -178,6 +186,34 @@ function ReplacePlayer(divId) {
       videoOptionBox.appendChild(noHtml5Link);
       if(window.document.getElementById("NVBPlayer" + videoId + "video")) {
         window.document.getElementById("NVBPlayer" + videoId + "video").parentNode.removeChild(window.document.getElementById("NVBPlayer" + videoId + "video"));
+      }
+      if(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppdisplay")[0])
+      {
+        window.document.getElementById("NVBPlayer" + videoId).removeChild(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppdisplay")[0]);
+      }
+      if(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppbuffering")[0])
+      {
+        window.document.getElementById("NVBPlayer" + videoId).removeChild(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppbuffering")[0]);
+      }
+      if(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppstart")[0])
+      {
+        window.document.getElementById("NVBPlayer" + videoId).removeChild(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppstart")[0]);
+      }
+      if(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("pplogo")[0])
+      {
+        window.document.getElementById("NVBPlayer" + videoId).removeChild(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("pplogo")[0]);
+      }
+      if(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppcontrols")[0])
+      {
+        window.document.getElementById("NVBPlayer" + videoId).removeChild(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("ppcontrols")[0]);
+      }
+      if(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("pprelated")[0])
+      {
+        window.document.getElementById("NVBPlayer" + videoId).removeChild(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("pprelated")[0]);
+      }
+      if(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("pppostertitle")[0])
+      {
+        window.document.getElementById("NVBPlayer" + videoId).removeChild(window.document.getElementById("NVBPlayer" + videoId).getElementsByClassName("pppostertitle")[0]);
       }
       window.document.getElementById("NVBPlayer" + videoId).appendChild(videoElem);
       window.document.getElementById("NVBPlayer" + videoId).appendChild(videoOptionBox);
