@@ -1,1 +1,0 @@
-Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/HTML5-Video%20f%C3%BCr%20Golem.de) • [Greasy Fork](https://greasyfork.org/scripts/1195-html5-video-f%C3%BCr-golem-de) • [OpenUserJS](https://openuserjs.org/scripts/tfr/HTML5-Video_f%C3%BCr_Golem.de)
