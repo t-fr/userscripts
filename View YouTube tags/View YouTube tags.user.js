@@ -1,12 +1,20 @@
 // ==UserScript==
-// @name        View YouTube tags
-// @namespace   89bb7b8930b27c9ac23a004b3dcc707a
-// @include     http://www.youtube.com/watch*
-// @include     https://www.youtube.com/watch*
-// @version     2
-// @grant       none
-// @description View tags on YouTube description pages. / Zeige Schlagwörter auf Youtube-Beschreibungsseiten an.
+// @name           View YouTube tags
+// @name:de        Zeige YouTube-Tags
+// @namespace      tfr
+// @description    View tags on YouTube description pages.
+// @description:de Zeige Schlagwörter auf Youtube-Beschreibungsseiten an.
+// @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @compatible     firefox
+// @compatible     chrome
+// @oujs:author    tfr
+// @include        http://www.youtube.com/watch*
+// @include        https://www.youtube.com/watch*
+// @version        3
+// @grant          none
 // ==/UserScript==
+
+/* Version 3: Update metadata, add German description */
 
 /* Dieses Skript steht unter CC0 / This script is licensed under CC0:
  * http://creativecommons.org/publicdomain/zero/1.0/deed.de
