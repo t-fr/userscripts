@@ -5,8 +5,9 @@
 // @description    Warns on pages supporting the extended copyright for press publishers with a red bar. Uses the blacklist from http://leistungsschutzrecht-stoppen.d-64.org/.
 // @description:de Warnt auf Seiten mit einem roten Balken, falls diese das Leistungsschutzrecht unterstützt. Nutzt die Blacklist von http://leistungsschutzrecht-stoppen.d-64.org/.
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
-// @compatible     firefox
-// @compatible     chrome
+// @compatible     firefox Works with Firefox and Greasemonkey
+// @compatible     chrome Works with Chrome and Tampermonkey
+// @compatible     opera Works with Opera and Tampermonkey Beta, but not with Violent monkey
 // @oujs:author    tfr
 // @include        *
 // @version        2

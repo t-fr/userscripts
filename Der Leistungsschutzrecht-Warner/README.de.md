@@ -4,7 +4,10 @@ Am 1. August 2013 wurde das umstrittene [Leistungsschutzrecht für Presseverlege
 [![Screenshot](https://www.picflash.org/img/2014/05/18/TBlargeQ9Q2JD.png "Screenshot")](https://www.picflash.org/picture.php?key=Q9Q2JD&action=show)
 
 Getestet wurde das Skript erfolgreich mit:
-- [Firefox 24.0](https://www.mozilla.org/firefox/new/) mit [Greasemonkey 1.12](https://addons.mozilla.org/firefox/addon/greasemonkey/)
-- [Chrome 23](https://www.google.com/chrome/) mit [Tampermonkey 3.5.3630.14](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+- [Firefox 40.0.2](https://www.mozilla.org/firefox/new/) mit [Greasemonkey 3.3](https://addons.mozilla.org/firefox/addon/greasemonkey/)
+- [Chrome 44.0.2403.155](https://www.google.com/chrome/) mit [Tampermonkey 3.11](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+- [Opera 31.0.1889.99](http://www.opera.com/de/computer) mit [Tampermonkey Beta 3.11.4666](https://addons.opera.com/extensions/details/tampermonkey-beta/)
+
+Funktioniert nicht mit Opera und Violent monkey.
 
 Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/Der%20Leistungsschutzrecht-Warner) • [Greasy Fork](https://greasyfork.org/scripts/1194-der-leistungsschutzrecht-warner) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Der_Leistungsschutzrecht-Warner)
