@@ -21,10 +21,10 @@ Google Chrome mit Tampermonkey wird nicht unterstützt.
 Es besteht die Möglichkeit, mich per [PN im Golem-Forum](http://forum.golem.de/pm.php?0,page=send,to_id=49624) zu kontaktieren.
 
 **Versionsgeschichte:**
-Version 1 (22.10.2013): Erste Version
-Version 2 (18.01.2014): Unterstützt jetzt auch HTTPS
-Version 3 (19.01.2014): Skript funktioniert jetzt auch bei deaktivierten Cookies
-Version 4 (19.01.2014): Bei Aufruf einer neuen Seite oder Reload nach Deaktivierung der HTML5-Version wird wieder HTML5-Video geladen (bisher neuer Tab benötigt)
-Version 5 (16.08.2015): Metadaten aktualisiert
+- Version 1 (22.10.2013): Erste Version
+- Version 2 (18.01.2014): Unterstützt jetzt auch HTTPS
+- Version 3 (19.01.2014): Skript funktioniert jetzt auch bei deaktivierten Cookies
+- Version 4 (19.01.2014): Bei Aufruf einer neuen Seite oder Reload nach Deaktivierung der HTML5-Version wird wieder HTML5-Video geladen (bisher neuer Tab benötigt)
+- Version 5 (16.08.2015): Metadaten aktualisiert
 
 Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/HTML5-Video%20f%C3%BCr%20Golem.de) • [Greasy Fork](https://greasyfork.org/scripts/1195-html5-video-f%C3%BCr-golem-de) • [OpenUserJS](https://openuserjs.org/scripts/tfr/HTML5-Video_f%C3%BCr_Golem.de)
