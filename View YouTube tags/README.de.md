@@ -1,0 +1,1 @@
+Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/View%20YouTube%20tags) • [Greasy Fork](https://greasyfork.org/scripts/1196-view-youtube-tags) • [OpenUserJS](https://openuserjs.org/scripts/tfr/View_YouTube_tags)
