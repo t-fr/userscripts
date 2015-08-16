@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Shorten URLs on Dailymotion
 // @name:de        Kürze URLs auf Dailymotion
-// @namespace      ShortenDailymotionLinks
+// @namespace      tfr
 // @description    Remove video name from URLs on Dailymotion page
 // @description:de Entferne Videoname aus URLs auf der Dailymotion-Seite
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
