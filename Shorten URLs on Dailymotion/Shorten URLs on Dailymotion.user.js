@@ -5,8 +5,9 @@
 // @description    Remove video name from URLs on Dailymotion page
 // @description:de Entferne Videoname aus URLs auf der Dailymotion-Seite
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
-// @compatible     firefox
-// @compatible     chrome
+// @compatible     firefox Works with Firefox and Greasemonkey
+// @compatible     chrome Works with Chrome and Tampermonkey
+// @compatible     opera Works with Opera and Tampermonkey Beta or Violent monkey
 // @oujs:author    tfr
 // @include        http://www.dailymotion.com/*
 // @include        https://www.dailymotion.com/*

@@ -16,9 +16,9 @@ Mitte: Anzeige des Videos bei Mouseover (Links für Aktivierung/Deaktivierung vo
 Rechts: Anzeige ähnlicher Videos nach Ende des Abspielvorgangs
 
 Erfolgreich getestet mit:
-- [Firefox 24.0](https://www.mozilla.org/firefox/new/) mit [Greasemonkey 1.12](https://addons.mozilla.org/firefox/addon/greasemonkey/)
+- [Firefox 40.0.2](https://www.mozilla.org/firefox/new/) mit [Greasemonkey 3.3](https://addons.mozilla.org/firefox/addon/greasemonkey/)
 
-Google Chrome mit Tampermonkey wird nicht unterstützt.
+Google Chrome mit Tampermonkey oder Opera mit Tampermonkey Beta/Violent monkey wird nicht unterstützt.
 
 Es besteht die Möglichkeit, mich per [PN im Golem-Forum](http://forum.golem.de/pm.php?0,page=send,to_id=49624) zu kontaktieren.
 

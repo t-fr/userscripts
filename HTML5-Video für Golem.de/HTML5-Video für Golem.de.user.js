@@ -3,8 +3,9 @@
 // @namespace      tfr
 // @description    Wandelt den Golem.de-eigenen Flash-Player in einen HTML5-Player um.
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
-// @compatible     firefox
-// @incompatible   chrome
+// @compatible     firefox Funktioniert mit Firefox und Greasemonkey
+// @incompatible   chrome Funktioniert nicht mit Chrome und Tampermonkey
+// @incompatible   opera Funktioniert nicht mit Opera und Tampermonkey Beta oder Violent monkey
 // @oujs:author    tfr
 // @include        http://www.golem.de/*
 // @include        https://www.golem.de/*
