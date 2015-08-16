@@ -4,13 +4,19 @@
 // @namespace      ShortenDailymotionLinks
 // @description    Remove video name from URLs on Dailymotion page
 // @description:de Entferne Videoname aus URLs auf der Dailymotion-Seite
+// @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @compatible     firefox
+// @compatible     chrome
+// @oujs:author    tfr
 // @include        http://www.dailymotion.com/*
 // @include        https://www.dailymotion.com/*
 // @include        http://dailymotion.com/*
 // @include        https://dailymotion.com/*
-// @version        1
+// @version        2
 // @grant          none
 // ==/UserScript==
+ 
+/* Version 2: Update Metadata */
  
 /* This script is licensed under CC0 / Dieses Skript steht unter CC0:
  * http://creativecommons.org/publicdomain/zero/1.0/deed.de
