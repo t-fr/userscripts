@@ -8,4 +8,4 @@ Erfolgreich getestet mit:
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) mit [Tampermonkey Beta 3.11.4666](https://addons.opera.com/extensions/details/tampermonkey-beta/)
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) mit [Violent monkey 273.827](https://addons.opera.com/extensions/details/violent-monkey/)
 
-Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/Bypass%20YouTube%20age%20verification) • [Greasy Fork](https://greasyfork.org/scripts/10032-bypass-youtube-age-verification) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Bypass_YouTube_age_verification)
+Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/Bypass%20YouTube%20age%20verification) • [Greasy Fork](https://greasyfork.org/scripts/10032-bypass-youtube-age-verification) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Bypass_YouTube_age_verification) • [Webextender](http://www.webextender.net/scripts/show/487453.html)

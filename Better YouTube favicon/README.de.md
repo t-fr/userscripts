@@ -6,4 +6,4 @@ Erfolgreich getestet mit:
 
 Funktioniert **nicht** mit Opera und Tampermonkey Beta oder Violent monkey.
 
-Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/Better%20YouTube%20favicon) • [Greasy Fork](https://greasyfork.org/scripts/1197-better-youtube-favicon) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Better_YouTube_favicon)
+Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/Better%20YouTube%20favicon) • [Greasy Fork](https://greasyfork.org/scripts/1197-better-youtube-favicon) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Better_YouTube_favicon) • [Webextender](http://www.webextender.net/scripts/show/179784.html)

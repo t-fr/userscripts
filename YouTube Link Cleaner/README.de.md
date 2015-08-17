@@ -6,4 +6,4 @@ Erfolgreich getestet mit:
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) mit [Tampermonkey Beta 3.11.4666](https://addons.opera.com/extensions/details/tampermonkey-beta/)
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) mit [Violent monkey 273.827](https://addons.opera.com/extensions/details/violent-monkey/)
 
-Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/YouTube%20Link%20Cleaner) • [Greasy Fork](https://greasyfork.org/scripts/1193-youtube-link-cleaner) • [OpenUserJS](https://openuserjs.org/scripts/tfr/YouTube_Link_Cleaner)
+Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/YouTube%20Link%20Cleaner) • [Greasy Fork](https://greasyfork.org/scripts/1193-youtube-link-cleaner) • [OpenUserJS](https://openuserjs.org/scripts/tfr/YouTube_Link_Cleaner) • [Webextender](http://www.webextender.net/scripts/show/179780.html)

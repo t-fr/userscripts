@@ -9,4 +9,4 @@ Successfully tested with:
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) with [Tampermonkey Beta 3.11.4666](https://addons.opera.com/extensions/details/tampermonkey-beta/)
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) with [Violent monkey 273.827](https://addons.opera.com/extensions/details/violent-monkey/)
 
-This script on: [GitHub](https://github.com/t-fr/userscripts/tree/master/View%20YouTube%20tags) • [Greasy Fork](https://greasyfork.org/scripts/1196-view-youtube-tags) • [OpenUserJS](https://openuserjs.org/scripts/tfr/View_YouTube_tags)
+This script on: [GitHub](https://github.com/t-fr/userscripts/tree/master/View%20YouTube%20tags) • [Greasy Fork](https://greasyfork.org/scripts/1196-view-youtube-tags) • [OpenUserJS](https://openuserjs.org/scripts/tfr/View_YouTube_tags) • [Webextender](http://www.webextender.net/scripts/show/179783.html)

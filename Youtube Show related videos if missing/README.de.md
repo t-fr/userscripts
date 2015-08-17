@@ -6,4 +6,4 @@ Erfolgreich getestet mit:
 
 Funktioniert **nicht** mit Chrome oder Opera und Tampermonkey.
 
-Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/Youtube%20Show%20related%20videos%20if%20missing) • [Greasy Fork](https://greasyfork.org/scripts/11734-youtube-show-related-videos-if-missing) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Youtube_Show_related_videos_if_missing)
+Dieses Skript auf: [GitHub](https://github.com/t-fr/userscripts/tree/master/Youtube%20Show%20related%20videos%20if%20missing) • [Greasy Fork](https://greasyfork.org/scripts/11734-youtube-show-related-videos-if-missing) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Youtube_Show_related_videos_if_missing) • [Webextender](http://www.webextender.net/scripts/show/487454.html)

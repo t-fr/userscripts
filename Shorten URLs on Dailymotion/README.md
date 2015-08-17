@@ -6,4 +6,4 @@ Successfully tested with:
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) with [Tampermonkey Beta 3.11.4666](https://addons.opera.com/extensions/details/tampermonkey-beta/)
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) with [Violent monkey 273.827](https://addons.opera.com/extensions/details/violent-monkey/)
 
-This script on: [GitHub](https://github.com/t-fr/userscripts/tree/master/Shorten%20URLs%20on%20Dailymotion) • [Greasy Fork](https://greasyfork.org/scripts/10033-shorten-urls-on-dailymotion) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Shorten_URLs_on_Dailymotion)
+This script on: [GitHub](https://github.com/t-fr/userscripts/tree/master/Shorten%20URLs%20on%20Dailymotion) • [Greasy Fork](https://greasyfork.org/scripts/10033-shorten-urls-on-dailymotion) • [OpenUserJS](https://openuserjs.org/scripts/tfr/Shorten_URLs_on_Dailymotion) • [Webextender](http://www.webextender.net/scripts/show/487455.html)
