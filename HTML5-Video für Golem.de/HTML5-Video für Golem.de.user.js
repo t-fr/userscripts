@@ -2,7 +2,9 @@
 // @name           HTML5-Video für Golem.de
 // @namespace      tfr
 // @description    Wandelt den Golem.de-eigenen Flash-Player in einen HTML5-Player um.
+// @author         tfr (https://github.com/t-fr/)
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @license        MIT license; https://pastebin.com/raw.php?i=4TMeeUXC
 // @compatible     firefox Funktioniert mit Firefox und Greasemonkey
 // @incompatible   chrome Funktioniert nicht mit Chrome und Tampermonkey
 // @incompatible   opera Funktioniert nicht mit Opera und Tampermonkey Beta oder Violent monkey
@@ -11,14 +13,24 @@
 // @include        https://www.golem.de/*
 // @include        http://video.golem.de/*
 // @include        https://video.golem.de/*
-// @version        6
+// @version        7
 // @grant          GM_xmlhttpRequest
 // ==/UserScript==
 
-/* Version 6: Probleme mit doppelten Playern und Verzögerungen lösen */
+/* This script is dual-licensed under CC0 and the MIT license.
+ * You can choose which one you want to use.
+ * CC0 license: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+ * MIT license: https://pastebin.com/raw.php?i=4TMeeUXC
+ *
+ * Dieses Skript steht sowohl unter CC0 als auch unter der MIT-Lizenz.
+ * Sie können sich aussuchen, welche Lizenz Sie nutzen.
+ * CC0-Lizenz: http://creativecommons.org/publicdomain/zero/1.0/deed.de
+ * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
+ */
 
-/* Dieses Skript steht unter CC0:
- * http://creativecommons.org/publicdomain/zero/1.0/deed.de */
+/* Version 7: Update license information
+ * Version 6: Probleme mit doppelten Playern und Verzögerungen lösen
+ */
 
 function HTML5VideoDisabled() {
   var retval = false;

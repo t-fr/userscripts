@@ -4,20 +4,32 @@
 // @namespace      tfr
 // @description    On pages of age-restricted videos, related videos are missing. This script re-adds the related videos.
 // @description:de Auf Seiten altersbeschränkter Videos fehlen die Videovorschläge. Dieses Skript fügt sie wieder hinzu.
+// @author         tfr (https://github.com/t-fr/)
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @license        MIT license; https://pastebin.com/raw.php?i=4TMeeUXC
 // @compatible     firefox Works with Firefox and Greasemonkey
 // @incompatible   chrome Does not work with Chrome and Tampermonkey
 // @compatible     opera Works with Opera and Violent monkey, but not with Tampermonkey Beta
 // @oujs:author    tfr
 // @include        http://www.youtube.com/watch?*
 // @include        https://www.youtube.com/watch?*
-// @version        2
+// @version        3
 // @grant          GM_xmlhttpRequest
 // ==/UserScript==
 
-/* This script is licensed under CC0 / Dieses Skript steht unter CC0:
- * http://creativecommons.org/publicdomain/zero/1.0/deed.de
- * http://creativecommons.org/publicdomain/zero/1.0/deed.en */
+/* This script is dual-licensed under CC0 and the MIT license.
+ * You can choose which one you want to use.
+ * CC0 license: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+ * MIT license: https://pastebin.com/raw.php?i=4TMeeUXC
+ *
+ * Dieses Skript steht sowohl unter CC0 als auch unter der MIT-Lizenz.
+ * Sie können sich aussuchen, welche Lizenz Sie nutzen.
+ * CC0-Lizenz: http://creativecommons.org/publicdomain/zero/1.0/deed.de
+ * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
+ */
+
+/* Version 3: Update license information
+ */
 
 if (window.document.getElementById('watch7-sidebar-modules') && !window.document.getElementById('watch-related'))
 {

@@ -4,7 +4,9 @@
 // @namespace      tfr
 // @description    Removes unneeded parameters and redirection pages from YouTube links.
 // @description:de Entfernt unnötige Parameter und Weiterleitungsseiten aus YouTube-Links.
+// @author         tfr (https://github.com/t-fr/)
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @license        MIT license; https://pastebin.com/raw.php?i=4TMeeUXC
 // @compatible     firefox Works with Firefox and Greasemonkey
 // @compatible     chrome Works with Chrome and Tampermonkey
 // @compatible     opera Works with Opera and Tampermonkey Beta or Violent monkey
@@ -13,16 +15,25 @@
 // @include        http://www.youtube.com/*
 // @include        https://youtube.com/*
 // @include        https://www.youtube.com/*
-// @version        5
+// @version        6
 // @grant          none
 // ==/UserScript==
+
+/* This script is dual-licensed under CC0 and the MIT license.
+ * You can choose which one you want to use.
+ * CC0 license: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+ * MIT license: https://pastebin.com/raw.php?i=4TMeeUXC
+ *
+ * Dieses Skript steht sowohl unter CC0 als auch unter der MIT-Lizenz.
+ * Sie können sich aussuchen, welche Lizenz Sie nutzen.
+ * CC0-Lizenz: http://creativecommons.org/publicdomain/zero/1.0/deed.de
+ * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
+ */
  
-/* Dieses Skript steht unter CC0 / This script is licensed under CC0:
- * http://creativecommons.org/publicdomain/zero/1.0/deed.de
- * http://creativecommons.org/publicdomain/zero/1.0/deed.en */
- 
-/* Version 5: update metadata, German description */
-/* Version 4: change URL parameters without reloading */
+/* Version 6: Update license data
+ * Version 5: update metadata, German description
+ * Version 4: change URL parameters without reloading
+ */
  
 /* If on a redirect page, redirect */
 if(window.location.pathname == "/redirect") {

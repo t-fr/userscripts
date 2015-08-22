@@ -4,22 +4,34 @@
 // @namespace      tfr
 // @description    Warns on pages supporting the extended copyright for press publishers with a red bar. Uses the blacklist from http://leistungsschutzrecht-stoppen.d-64.org/.
 // @description:de Warnt auf Seiten mit einem roten Balken, falls diese das Leistungsschutzrecht unterstützt. Nutzt die Blacklist von http://leistungsschutzrecht-stoppen.d-64.org/.
+// @author         tfr (https://github.com/t-fr/)
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @license        MIT license; https://pastebin.com/raw.php?i=4TMeeUXC
 // @compatible     firefox Works with Firefox and Greasemonkey
 // @compatible     chrome Works with Chrome and Tampermonkey
 // @compatible     opera Works with Opera and Tampermonkey Beta, but not with Violent monkey
 // @oujs:author    tfr
 // @include        *
-// @version        2
+// @version        3
 // @grant          GM_xmlhttpRequest
 // @grant          GM_getValue
 // @grant          GM_setValue
 // ==/UserScript==
 
-/* Version 2: update metadata */
+/* This script is dual-licensed under CC0 and the MIT license.
+ * You can choose which one you want to use.
+ * CC0 license: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+ * MIT license: https://pastebin.com/raw.php?i=4TMeeUXC
+ *
+ * Dieses Skript steht sowohl unter CC0 als auch unter der MIT-Lizenz.
+ * Sie können sich aussuchen, welche Lizenz Sie nutzen.
+ * CC0-Lizenz: http://creativecommons.org/publicdomain/zero/1.0/deed.de
+ * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
+ */
 
-/* Dieses Skript steht unter CC0:
- * http://creativecommons.org/publicdomain/zero/1.0/deed.de */
+/* Version 3: Update license information
+ * Version 2: update metadata
+ */
 
 /* Einstellungen */
 /* Wie der Titel geändert werden soll (Text vorher und nachher) */

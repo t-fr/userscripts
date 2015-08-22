@@ -4,7 +4,9 @@
 // @namespace      tfr
 // @description    Replaces the meaningless play symbol with a YouTube-text favicon.
 // @description:de Ersetzt das nichtssagende Play-Symbol mit einem Youtube-Text-Favicon.
+// @author         tfr (https://github.com/t-fr/)
 // @license        CC0; https://creativecommons.org/publicdomain/zero/1.0/
+// @license        MIT license; https://pastebin.com/raw.php?i=4TMeeUXC
 // @compatible     firefox Works with Firefox and Greasemonkey
 // @compatible     chrome Works with Chrome and Tampermonkey
 // @incompatible   opera Does not work with Opera and Tampermonkey Beta or Violent monkey
@@ -21,15 +23,24 @@
 // @include        https://youtu.be/*
 // @include        http://*.youtu.be/*
 // @include        https://*.youtu.be/*
-// @version        2
+// @version        3
 // @grant          none
 // ==/UserScript==
 
-/* Version 2: Update metadata, add German description */
+/* This script is dual-licensed under CC0 and the MIT license.
+ * You can choose which one you want to use.
+ * CC0 license: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+ * MIT license: https://pastebin.com/raw.php?i=4TMeeUXC
+ *
+ * Dieses Skript steht sowohl unter CC0 als auch unter der MIT-Lizenz.
+ * Sie können sich aussuchen, welche Lizenz Sie nutzen.
+ * CC0-Lizenz: http://creativecommons.org/publicdomain/zero/1.0/deed.de
+ * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
+ */
 
-/* Dieses Skript steht unter CC0 / This script is licensed under CC0:
- * http://creativecommons.org/publicdomain/zero/1.0/deed.de
- * http://creativecommons.org/publicdomain/zero/1.0/deed.en */
+/* Version 3: Update license information
+ * Version 2: Update metadata, add German description
+ */
 
 // *** Einstellungen / Settings ***
 // * Favicon URL *
