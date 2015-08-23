@@ -15,7 +15,7 @@
 // @include        http://www.youtube.com/*
 // @include        https://youtube.com/*
 // @include        https://www.youtube.com/*
-// @version        6
+// @version        7
 // @grant          none
 // ==/UserScript==
 
@@ -30,7 +30,8 @@
  * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
  */
  
-/* Version 6: Update license data
+/* Version 7: Found another way to disable SPF
+ * Version 6: Update license data
  * Version 5: update metadata, German description
  * Version 4: change URL parameters without reloading
  */
@@ -44,17 +45,11 @@ if(window.location.pathname == "/redirect") {
 if(window.location.href.match(/(&(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*|\?(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*$)/)) {
   window.history.replaceState({}, window.document.title, window.location.href.replace(/(&(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*|\?(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*$)/g, ''));
 }
-LinkCount = 0;
-function ChangeLinks() {
-  if(LinkCount != window.document.links.length) {
-    for (var i = 0; i < window.document.links.length; i++) {
-      /* Remove unneeded parameters */
-      window.document.links[i].href = window.document.links[i].href.replace(/(&(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*|\?(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*$)/g, '');
-      /* Do not use redirect pages, disable AJAX on links */
-      window.document.links[i].className = window.document.links[i].className.replace(/(yt-uix-redirect-link|spf-link)/g, "");
-    }
-    LinkCount = window.document.links.length;
-  }
+for (var i = 0; i < window.document.links.length; i++) {
+  /* Remove unneeded parameters */
+  window.document.links[i].href = window.document.links[i].href.replace(/(&(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*|\?(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*$)/g, '');
 }
-ChangeLinks();
-window.setInterval(ChangeLinks, 1000);
+// Disable SPF, inspired by https://openuserjs.org/scripts/JoeSimmons/YouTube_-_Disable_Red_Bar_aka_SPF/source
+if(window && window._spf_state && window._spf_state.config) {
+  window._spf_state.config["navigate-limit"] = 0;
+}
