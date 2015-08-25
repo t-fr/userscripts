@@ -13,7 +13,7 @@
 // @oujs:author    tfr
 // @include        http://www.youtube.com/watch*
 // @include        https://www.youtube.com/watch*
-// @version        4
+// @version        5
 // @grant          none
 // ==/UserScript==
 
@@ -28,13 +28,14 @@
  * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
  */
 
-/* Version 4: Update license data
+/* Version 5: Copy the disabling of SPF from the YouTube Link Cleaner
+ * Version 4: Update license data
  * Version 3: Update metadata, add German description
  */
 
-/* Disable AJAX on links because it is buggy */
-for(var i = window.document.getElementsByClassName("spf-link").length - 1; i >= 0; i--) {
-  window.document.getElementsByClassName("spf-link")[i].className = window.document.getElementsByClassName("spf-link")[i].className.replace(/spf-link/g, "");
+// Copy the disabling of SPF from the YouTube Link Cleaner
+if(window && window._spf_state && window._spf_state.config) {
+  window._spf_state.config["navigate-limit"] = 0;
 }
 if(typeof ytplayer !== "undefined" && typeof ytplayer.config !== "undefined" && typeof ytplayer.config.args !== "undefined" && typeof ytplayer.config.args.keywords !== "undefined") {
   var keywords = ytplayer.config.args.keywords;
