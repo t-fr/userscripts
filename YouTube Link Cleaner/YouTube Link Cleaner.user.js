@@ -15,7 +15,7 @@
 // @include        http://www.youtube.com/*
 // @include        https://youtube.com/*
 // @include        https://www.youtube.com/*
-// @version        7
+// @version        8
 // @grant          none
 // ==/UserScript==
 
@@ -30,7 +30,8 @@
  * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
  */
  
-/* Version 7: Found another way to disable SPF
+/* Version 8: Accidentally removed the disabling of redirect pages, restore it
+ * Version 7: Found another way to disable SPF
  * Version 6: Update license data
  * Version 5: update metadata, German description
  * Version 4: change URL parameters without reloading
@@ -48,6 +49,8 @@ if(window.location.href.match(/(&(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-
 for (var i = 0; i < window.document.links.length; i++) {
   /* Remove unneeded parameters */
   window.document.links[i].href = window.document.links[i].href.replace(/(&(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*|\?(feature|src_vid|annotation_id|gl|hl)=[a-zA-Z0-9_\-\.]*$)/g, '');
+  /* Do not use redirect pages */
+  window.document.links[i].className = window.document.links[i].className.replace(/(yt-uix-redirect-link)/g, "");
 }
 // Disable SPF, inspired by https://openuserjs.org/scripts/JoeSimmons/YouTube_-_Disable_Red_Bar_aka_SPF/source
 if(window && window._spf_state && window._spf_state.config) {
