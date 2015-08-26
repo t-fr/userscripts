@@ -13,7 +13,7 @@
 // @oujs:author    tfr
 // @include        http://www.youtube.com/watch?*
 // @include        https://www.youtube.com/watch?*
-// @version        3
+// @version        4
 // @grant          GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -28,7 +28,8 @@
  * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
  */
 
-/* Version 3: Update license information
+/* Version 4: Do not write "by ..." in video title
+ * Version 3: Update license information
  */
 
 if (window.document.getElementById('watch7-sidebar-modules') && !window.document.getElementById('watch-related'))
@@ -116,7 +117,7 @@ if (window.document.getElementById('watch7-sidebar-modules') && !window.document
             var listElemContLinkSpan1 = window.document.createElement('span');
             listElemContLinkSpan1.setAttribute('class', 'title');
             listElemContLinkSpan1.setAttribute('aria-describedby', 'description-id-' + i);
-            listElemContLinkSpan1.appendChild(window.document.createTextNode((navigator.language.toLowerCase().substr(0, 2) == 'de' ? 'von ' : 'by ') + relatedTitle));
+            listElemContLinkSpan1.appendChild(window.document.createTextNode(relatedTitle));
             listElemContLink.appendChild(listElemContLinkSpan1);
             var listElemContLinkSpan2 = window.document.createElement('span');
             listElemContLinkSpan2.setAttribute('id', 'description-id-' + i);
