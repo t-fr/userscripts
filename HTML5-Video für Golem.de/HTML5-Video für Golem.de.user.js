@@ -28,7 +28,7 @@
  * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
  */
 
-/* Version 7: Update license information
+/* Version 7: Update license information 
  * Version 6: Probleme mit doppelten Playern und Verzögerungen lösen
  */
 

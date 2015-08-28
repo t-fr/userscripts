@@ -1,6 +1,6 @@
 **Hinweis:** Zurzeit funktioniert der Player auf https://video.golem.de/... nicht. Bitte die URL der Seite in http://video.golem.de/... ändern. [Weitere Informationen](https://openuserjs.org/scripts/tfr/HTML5-Video_f%C3%BCr_Golem.de/issues/Does_not_work)
 
-Wandelt den Golem.de-eigenen Flash-Player in einen HTML5-Player um. Dazu wird der native Firefox-Player benutzt.
+Wandelt den Golem.de-eigenen Flash-Player in einen HTML5-Player um. Dazu wird der native Firefox-Player benutzt. 
 
 **Funktionen:**
 - HD ein- und ausschalten (falls vorhanden)
