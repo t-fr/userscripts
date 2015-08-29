@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<!--
+	The MIT License (MIT)
+	 
+	Copyright (c) 2015 tfr (https://github.com/t-fr/)
+	 
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+	 
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+	 
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+	-->
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>tfr&#39;s Userscript to Bookmarklet Converter</title>
+		<style type="text/css">
+			body {font-family:sans-serif;}
+			input#url, input#bookmarkletCode {width:500px;}
+			form#urlForm, form#sourcecodeForm {background-color:silver; border:1px solid black; padding:2px;}
+			a#bookmarklet {background-color:silver; border:1px solid black; padding:2px;}
+			p#xhrError, p#incompatibleArea, div#autoIncompatibleArea {background-color:lightpink; border:5px solid red;}
+			#nottestedArea {background-color:lightyellow; border:5px solid yellow;}
+			p#compatibleArea {background-color:lightgreen; border:5px solid green;}
+			span#xhrErrorMessage, span#compatibleNote, span#incompatibleNote {font-style:italic;}
+		</style>
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			/* Localize page */
+			function localize()
+			{
+				var navLan = navigator && navigator.language ? navigator.language.toLowerCase().substr(0, 2) : "";
+				switch(navLan)
+				{
+					case "de":
+						localize_DE();
+						break;
+				}
+			}
+			/* Localize to English (as an example) */
+			function localize_EN()
+			{
+				window.document.title = "tfr's Userscript to Bookmarklet Converter";
+				window.document.getElementById("mainHeadline").textContent = "tfr's Userscript to Bookmarklet Converter";
+				window.document.getElementById("whatIsItIntroduction").textContent = "Don't know what a bookmarklet is? ";
+				window.document.getElementById("whatIsItLink").textContent = "Find it out!";
+				window.document.getElementById("whatIsItLink").href = "https://en.wikipedia.org/wiki/Bookmarklet";
+				window.document.getElementById("xhrErrorLabel").textContent = "Error at fetching script: ";
+				window.document.getElementById("compatibleDescription").textContent = "This script was marked as compatible with this converter by the author.";
+				window.document.getElementById("compatibleNoteLabel").textContent = "Notes: ";
+				window.document.getElementById("nottestedDescription").textContent = "The script author has not provided any information about the compatibility with this converter.";
+				window.document.getElementById("howtoaddcompinfo").textContent = "Insert one of the lines to the metadata block at the beginning of your user script to mark the script as (in)compatible:";
+				window.document.getElementById("howtoaddcompinfoCompatible").textContent = "// @compatible tfrbmlconv-1 <notes>";
+				window.document.getElementById("howtoaddcompinfoIncompatible").textContent = "// @incompatible tfrbmlconv-1 <notes>";
+				window.document.getElementById("incompatibleDescription").textContent = "This script was marked as incompatible with this converter by the author.";
+				window.document.getElementById("incompatibleNoteLabel").textContent = "Notes: ";
+				window.document.getElementById("autoIncompatibleDescription").textContent = "This script is probably incompatible with this converter because of:";
+				window.document.getElementById("incompatibleGrantBefore").textContent = "An incompatible ";
+				window.document.getElementById("grant").textContent = "@grant";
+				window.document.getElementById("incompatibleGrantAfter").textContent = " key was defined: ";
+				window.document.getElementById("incompatibleForEachLoopBefore").textContent = "A ";
+				window.document.getElementById("foreach").textContent = "for each";
+				window.document.getElementById("incompatibleForEachLoopAfter").textContent = " loop was detected. This type of loop is only supported by Greasemonkey and other userscript engines and not directly by the browser.";
+				window.document.getElementById("howtoaddcompinfo2").textContent = "Insert one of the lines to the metadata block at the beginning of your user script to mark the script explicitly as (in)compatible:";
+				window.document.getElementById("howtoaddcompinfoCompatible2").textContent = "// @compatible tfrbmlconv-1 <notes>";
+				window.document.getElementById("howtoaddcompinfoIncompatible2").textContent = "// @incompatible tfrbmlconv-1 <notes>";
+				window.document.getElementById("bookmarkletIntro").textContent = "Here is your bookmarklet: ";
+				window.document.getElementById("charCountBefore").textContent = " (";
+				window.document.getElementById("charCountAfter").textContent = " characters)";
+				window.document.getElementById("bookmarkletDescription").textContent = "Drag-and-drop the link to your bookmarks/favorites bar.";
+				window.document.getElementById("bookmarkletManualCopyDescription").textContent = "If you can't drag-and-drop the above link, add a new bookmark/favorite with the following URL:";
+				window.document.getElementById("bookmarkletOptionsDescription").textContent = "If the bookmarklet is above the character limit of your browser, you can try enabling the following options:";
+				window.document.getElementById("externalCodeLabel").textContent = " Don't include the complete code into the bookmarklet, load code from external URL";
+				window.document.getElementById("dontCheckPageLabel").textContent = " Don't check if bookmarklet runs on the correct page defined by @include or @match";
+				window.document.getElementById("originalSourcecodeToggle").textContent = "View original source code";
+				window.document.getElementById("modifiedSourcecodeToggle").textContent = "View Bookmarklet source code";
+				window.document.getElementById("selectUrlForm").textContent = "Enter URL";
+				window.document.getElementById("selectSourcecodeForm").textContent = "Enter source code";
+				window.document.getElementById("urlLabel").textContent = "URL to raw userscript to convert:";
+				window.document.getElementById("urlFormNoteBeforeLink").textContent = "Note: Due to the ";
+				window.document.getElementById("urlFormNoteLink").textContent = "same-origin policy";
+				window.document.getElementById("urlFormNoteLink").href = "https://en.wikipedia.org/wiki/Same-origin_policy";
+				window.document.getElementById("urlFormNoteAfterLink").textContent = ", you only can enter script URLs starting with https://raw.githubusercontent.com/.";
+				window.document.getElementById("urlFormSubmit").value = "Convert";
+				window.document.getElementById("sourcecodeLabel").textContent = "Source code to convert:";
+				window.document.getElementById("sourcecodeFormSubmit").value = "Convert";
+			}
+			/* Localize to German */
+			function localize_DE()
+			{
+				window.document.title = "Benutzerskript-zu-Bookmarklet-Konverter von tfr";
+				window.document.getElementById("mainHeadline").textContent = "Benutzerskript-zu-Bookmarklet-Konverter von tfr";
+				window.document.getElementById("whatIsItIntroduction").textContent = "Wissen Sie nicht, was ein Bookmarklet ist? ";
+				window.document.getElementById("whatIsItLink").textContent = "Finden Sie es heraus!";
+				window.document.getElementById("whatIsItLink").href = "https://de.wikipedia.org/wiki/Bookmarklet";
+				window.document.getElementById("xhrErrorLabel").textContent = "Fehler beim Holen des Skripts: ";
+				window.document.getElementById("compatibleDescription").textContent = "Dieses Skript wurde vom Autor als kompatibel mit diesem Konverter markiert.";
+				window.document.getElementById("compatibleNoteLabel").textContent = "Anmerkungen: ";
+				window.document.getElementById("nottestedDescription").textContent = "Der Skriptautor hat keine Informationen zur Kompatibilität mit diesem Konverter zur Verfügung gestellt.";
+				window.document.getElementById("howtoaddcompinfo").textContent = "Fügen Sie eine der folgenden Zeilen in den Metadaten-Block am Benutzerskriptanfang ein, um das Skript als (in)kompatibel zu markieren:";
+				window.document.getElementById("howtoaddcompinfoCompatible").textContent = "// @compatible tfrbmlconv-1 <Anmerkungen>";
+				window.document.getElementById("howtoaddcompinfoIncompatible").textContent = "// @incompatible tfrbmlconv-1 <Anmerkungen>";
+				window.document.getElementById("incompatibleDescription").textContent = "Dieses Skript wurde vom Autor als inkompatibel mit diesem Konverter markiert.";
+				window.document.getElementById("incompatibleNoteLabel").textContent = "Anmerkungen: ";
+				window.document.getElementById("autoIncompatibleDescription").textContent = "Dieses Skript ist wahrscheinlich inkompatibel mit diesem Konverter, weil:";
+				window.document.getElementById("incompatibleGrantBefore").textContent = "Ein nicht unterstützter ";
+				window.document.getElementById("grant").textContent = "@grant";
+				window.document.getElementById("incompatibleGrantAfter").textContent = "-Schlüssel wurde angegeben: ";
+				window.document.getElementById("incompatibleForEachLoopBefore").textContent = "Eine ";
+				window.document.getElementById("foreach").textContent = "for each";
+				window.document.getElementById("incompatibleForEachLoopAfter").textContent = "-Schleife wurde entdeckt. Diese Schleifenart wird nur von Greasemonkey und anderen Benutzerskriptmanagern und nicht direkt vom Browser unterstützt.";
+				window.document.getElementById("howtoaddcompinfo2").textContent = "Fügen Sie eine der folgenden Zeilen in den Metadaten-Block am Benutzerskriptanfang ein, um das Skript explizit als (in)kompatibel zu markieren:";
+				window.document.getElementById("howtoaddcompinfoCompatible2").textContent = "// @compatible tfrbmlconv-1 <Anmerkungen>";
+				window.document.getElementById("howtoaddcompinfoIncompatible2").textContent = "// @incompatible tfrbmlconv-1 <Anmerkungen>";
+				window.document.getElementById("bookmarkletIntro").textContent = "Hier ist Ihr Bookmarklet: ";
+				window.document.getElementById("charCountBefore").textContent = " (";
+				window.document.getElementById("charCountAfter").textContent = " Zeichen)";
+				window.document.getElementById("bookmarkletDescription").textContent = "Ziehen Sie den Link auf die Lesezeichen-/Favoritenleiste.";
+				window.document.getElementById("bookmarkletManualCopyDescription").textContent = "Sollten Sie den Link nicht dorthin ziehen können, erstellen Sie ein Lesezeichen/Favoriten mit der folgenden URL:";
+				window.document.getElementById("bookmarkletOptionsDescription").textContent = "Sollte das Bookmarklet über dem Zeichenlimit Ihres Browsers liegen, können Sie versuchen, folgende Optionen zu aktivieren:";
+				window.document.getElementById("externalCodeLabel").textContent = " Nicht den kompletten Quelltext ins Bookmarklet integrieren, lade ihn stattdessen von der externen URL";
+				window.document.getElementById("dontCheckPageLabel").textContent = " Prüfe nicht, ob das Bookmarklet auf der richtigen Seite, die mit @include oder @match definiert ist, läuft";
+				window.document.getElementById("originalSourcecodeToggle").textContent = "Zeige originalen Quelltext";
+				window.document.getElementById("modifiedSourcecodeToggle").textContent = "Zeige Bookmarklet-Quelltext";
+				window.document.getElementById("selectUrlForm").textContent = "URL eingeben";
+				window.document.getElementById("selectSourcecodeForm").textContent = "Quelltext eingeben";
+				window.document.getElementById("urlLabel").textContent = "URL zum reinen Quelltext, der konvertiert werden soll:";
+				window.document.getElementById("urlFormNoteBeforeLink").textContent = "Hinweis: Wegen der ";
+				window.document.getElementById("urlFormNoteLink").textContent = "Same-Origin-Policy";
+				window.document.getElementById("urlFormNoteLink").href = "https://de.wikipedia.org/wiki/Same-Origin-Policy";
+				window.document.getElementById("urlFormNoteAfterLink").textContent = " können Sie nur URLs eingeben, die mit https://raw.githubusercontent.com/ beginnen.";
+				window.document.getElementById("urlFormSubmit").value = "Konvertieren";
+				window.document.getElementById("sourcecodeLabel").textContent = "Quelltext, der konvertiert werden soll:";
+				window.document.getElementById("sourcecodeFormSubmit").value = "Konvertieren";
+			}
+			/* converting functions */
+			function getMetadata(text)
+			{
+				text.match(/\=\=UserScript\=\=([\s\S]*?)\=\=\/UserScript\=\=/);
+				var metadataText = RegExp.$1;
+				metadataText = metadataText.replace(/^\/\/\s*/gm, "").replace(/\r/g, "");
+				var metadataLines = metadataText.split("\n");
+				var metadata = new Object();
+				for(var i = 0; i < metadataLines.length; i++)
+				{
+					if(metadataLines[i].match(/\@(\S*)\s*(.*)/))
+					{
+						if(!metadata[RegExp.$1])
+						{
+							metadata[RegExp.$1] = new Array();
+						}
+						metadata[RegExp.$1].push(RegExp.$2);
+					}
+				}
+				return metadata;
+			}
+			function stripComments(text)
+			{
+				/* Remove comments, see http://perldoc.perl.org/perlfaq6.html#How-do-I-use-a-regular-expression-to-strip-C-style-comments-from-a-file? */
+				text = text.replace(/\/\*[^*]*\*+([^\/*][^*]*\*+)*\/|\/\/([^\\]|[^\n][\n]?)*?\n|("(\\.|[^"\\])*"|'(\\.|[^'\\])*'|.[^\/"'\\]*)/g, "$3");
+				return text;
+			}
+			/* convert include rule to regexp */
+			function getRegexp(includeRule)
+			{
+				if(includeRule.match(/^\/(.*)\/$/))
+				{
+					return RegExp.$1;
+				}
+				else
+				{
+					return "^" + includeRule.replace(/([\/\.\+\?\^\$\@\|\\\(\)\[\]\{\}\-])/g, "\\$1").replace(/\*/g, ".*") + "$";
+				}
+			}
+			function convertScript(text, noCheck, language, externalUrl)
+			{
+				var metadata = getMetadata(text);
+				includeRegexps = new Array();
+				excludeRegexps = new Array();
+				includeStrings = new Array();
+				excludeStrings = new Array();
+				if(metadata["include"]) for(var i = 0; i < metadata["include"].length; i++)
+				{
+					includeRegexps.push(getRegexp(metadata["include"][i]));
+					includeStrings.push(metadata["include"][i]);
+				}
+				if(metadata["match"]) for(var i = 0; i < metadata["match"].length; i++)
+				{
+					includeRegexps.push(getRegexp(metadata["match"][i]));
+					includeStrings.push(metadata["match"][i]);
+				}
+				if(metadata["exclude"]) for(var i = 0; i < metadata["exclude"].length; i++)
+				{
+					excludeRegexps.push(getRegexp(metadata["exclude"][i]));
+					excludeStrings.push(metadata["exclude"][i]);
+				}
+				var externalScripts = metadata["require"] ? metadata["require"] : new Array();
+				if(externalUrl)
+				{
+					externalScripts.push(externalUrl);
+					text = "";
+				}
+				text = stripComments(text).replace(/(^\s*|\s*$)/gm, "");
+				if(externalScripts.length > 0)
+				{
+					var exttext = "function loadScript(url) {\nvar st = window.document.createElement(\"script\");\nst.type = \"text\/javascript\";\nst.src = url;\nwindow.document.getElementsByTagName(\"body\")[0].appendChild(st);\n}\n";
+					for(var i = 0; i < externalScripts.length; i++)
+					{
+						exttext += "loadScript(\"" + externalScripts[i] + "\")\n";
+					}
+					text = exttext + text;
+				}
+				text = noCheck || ((includeRegexps.join("|") == "^.*$" || includeRegexps.join("|") == "") && excludeRegexps.join("|") == "") ? text : "if(" + (includeRegexps.join("|") != "^.*$" && includeRegexps.join("|") != "" ? "window.location.href.match(/" + includeRegexps.join("|") + "/)" : "") + (includeRegexps.join("|") != "^.*$" && includeRegexps.join("|") != "" && excludeRegexps.join("|") != "" ? " && " : "") + (excludeRegexps.join("|") != "" ? "!window.location.href.match(/" + excludeRegexps.join("|") + "/)" : "") + ") {\n" + text + "\n} else {\nwindow.alert(\"" + (language == "de" ? "Diese Seite ist nicht in den Include-Regeln festgelegt oder wurde ausgeschlossen.\\nInclude: " + includeStrings.join(", ") + "\\nAusgeschlossen: " + excludeStrings.join(", ") : "This page does not match the include rules for this script or is excluded.\\nInclude: " + includeStrings.join(", ") + "\\nExclude: " + excludeStrings.join(", ")) + "\");\n}";
+				text = "new function() {\n" + text + "\n}();\nvoid(0);";
+				return text;
+			}
+			/* check compatibility */
+			function checkCompatibility(text)
+			{
+				var metadata = getMetadata(text);
+				window.document.getElementById("compatibleArea").style.display = "none";
+				window.document.getElementById("nottestedArea").style.display = "none";
+				window.document.getElementById("incompatibleArea").style.display = "none";
+				window.document.getElementById("autoIncompatibleArea").style.display = "none";
+				var isCompatible = false;
+				var isIncompatible = false;
+				if(metadata["compatible"])
+				{
+					for(var i = 0; i < metadata["compatible"].length; i++)
+					{
+						if(metadata["compatible"][i].split(" ")[0] == "tfrbmlconv-1")
+						{
+							isCompatible = true;
+							window.document.getElementById("compatibleArea").style.display = "block";
+							window.document.getElementById("compatibleNote").textContent = metadata["compatible"][i].split(" ").slice(1).join(" ");
+						}
+					}
+				}
+				if(metadata["incompatible"])
+				{
+					for(var i = 0; i < metadata["incompatible"].length; i++)
+					{
+						if(metadata["incompatible"][i].split(" ")[0] == "tfrbmlconv-1")
+						{
+							isIncompatible = true;
+							window.document.getElementById("incompatibleArea").style.display = "block";
+							window.document.getElementById("incompatibleNote").textContent = metadata["incompatible"][i].split(" ").slice(1).join(" ");
+						}
+					}
+				}
+				if(!isCompatible && !isIncompatible)
+				{
+					var grants = metadata["grant"];
+					if(grants)
+					{
+						if(grants.indexOf("none") > -1)
+						{
+							grants.splice(grants.indexOf("none"));
+						}
+						if(grants.length > 0)
+						{
+							window.document.getElementById("autoIncompatibleArea").style.display = "block";
+							window.document.getElementById("incompatibleGrant").style.display = "block";
+							window.document.getElementById("grantIncompatibleList").textContent = grants.join(", ");
+						}
+					}
+					if(text.indexOf("for each") > -1)
+					{
+						window.document.getElementById("autoIncompatibleArea").style.display = "block";
+						window.document.getElementById("incompatibleForEachLoop").style.display = "block";
+					}
+					if((!grants || grants.length == 0) && text.indexOf("for each") == -1)
+					{
+						window.document.getElementById("nottestedArea").style.display = "block";
+					}
+				}
+			}
+			/* convert GET parameters */
+			var $_GET = new Object();
+			var keyvalpairs = window.location.search.replace(/\?/g, "").split("&");
+			for (var i = 0; i < keyvalpairs.length; i++)
+			{
+				var keyval = keyvalpairs[i].split("=");
+				if(keyval.length == 2)
+				{
+					$_GET[window.decodeURIComponent(keyval[0].replace(/\+/g, " "))] = window.decodeURIComponent(keyval[1].replace(/\+/g, " "));
+				}
+			}
+			/* Convert source code withour new loading page */
+			function convertSourcecode(sourcecode)
+			{
+				window.document.getElementById("xhrError").style.display = "none";
+				window.document.getElementById("externalCode").checked = false;
+				window.document.getElementById("dontCheckPage").checked = false;
+				window.document.getElementById("originalSourcecode").value = sourcecode;
+				reloadSourcecode();
+			}
+			function reloadSourcecode()
+			{
+				var navLan = navigator && navigator.language ? navigator.language.toLowerCase().substr(0, 2) : "";
+				var metadata = getMetadata(window.document.getElementById("originalSourcecode").value);
+				window.document.getElementById("modifiedSourcecode").value = convertScript(window.document.getElementById("originalSourcecode").value, window.document.getElementById("dontCheckPage").checked, navLan, window.document.getElementById("externalCode").checked ? $_GET["url"] : "");
+				window.document.getElementById("bookmarklet").href = "javascript:" + window.encodeURIComponent(window.document.getElementById("modifiedSourcecode").value.replace(/[\r\n]*/g, ""));
+				window.document.getElementById("bookmarklet").textContent = metadata["name:" + navLan] ? metadata["name:" + navLan] : metadata["name"] ? metadata["name"] : "Bookmarklet";
+				window.document.getElementById("charCount").textContent = window.document.getElementById("bookmarklet").href.length;
+				window.document.getElementById("bookmarkletCode").value = window.document.getElementById("bookmarklet").href;
+				window.document.getElementById("bookmarkletArea").style.display = "block";
+				window.document.getElementById("bookmarkletDescription").style.display = "block";
+				window.document.getElementById("bookmarkletManualCopy").style.display = "block";
+				window.document.getElementById("bookmarkletOptions").style.display = "block";
+				window.document.getElementById("originalSourcecodeArea").style.display = "block";
+				window.document.getElementById("modifiedSourcecodeArea").style.display = "block";
+				checkCompatibility(window.document.getElementById("originalSourcecode").value);
+			}
+			/* Run following code after pageload */
+			function runOnload()
+			{
+				localize();
+				if($_GET["sourcecode"])
+				{
+					window.document.getElementById("externalCode").setAttribute("disabled", "disabled");
+					convertSourcecode($_GET["sourcecode"]);
+				}
+				else if($_GET["url"])
+				{
+					try
+					{
+						var xhr = new XMLHttpRequest();
+						xhr.open("GET", $_GET["url"]);
+						xhr.onreadystatechange = function()
+						{
+							if(this.readyState == 4 && this.status == 200)
+							{
+								window.document.getElementById("externalCode").removeAttribute("disabled");
+								convertSourcecode(this.responseText);
+							}
+							else
+							{
+								window.document.getElementById("xhrErrorMessage").textContent =  "HTTP Status is not 200!";
+								window.document.getElementById("xhrError").style.display = "block";
+							}
+						};
+						xhr.send();
+					}
+					catch(e)
+					{
+						window.document.getElementById("xhrErrorMessage").textContent = e;
+						window.document.getElementById("xhrError").style.display = "block";
+					}
+				}
+			}
+			window.onload = runOnload;
+			/* ]]> */
+		</script>
+	</head>
+	<body id="body">
+		<h1 id="mainHeadline">tfr&#39;s Userscript to Bookmarklet Converter</h1>
+		<p id="whatIsItArea"><span id="whatIsItIntroduction">Don&#39;t know what a bookmarklet is? </span><a href="https://en.wikipedia.org/wiki/Bookmarklet" id="whatIsItLink" onclick="javascript:window.open(this.href); return false;">Find it out!</a></p>
+		<p id="xhrError" style="display:none;"><span id="xhrErrorLabel">Error at fetching script: </span><span id="xhrErrorMessage"></span></p>
+		<p id="compatibleArea" style="display:none;"><span id="compatibleDescription">This script was marked as compatible with this converter by the author.</span><br /><span id="compatibleNoteLabel">Notes: </span><span id="compatibleNote"></span></p>
+		<p id="nottestedArea" style="display:none;"><span id="nottestedDescription">The script author has not provided any information about the compatibility with this converter.</span><br /><span id="howtoaddcompinfo">Insert one of the lines to the metadata block at the beginning of your user script to mark the script as (in)compatible:</span><br /><code id="howtoaddcompinfoCompatible">// @compatible tfrbmlconv-1 &lt;notes&gt;</code><br /><code id="howtoaddcompinfoIncompatible">// @incompatible tfrbmlconv-1 &lt;notes&gt;</code></p>
+		<p id="incompatibleArea" style="display:none;"><span id="incompatibleDescription">This script was marked as incompatible with this converter by the author.</span><br /><span id="incompatibleNoteLabel">Notes: </span><span id="incompatibleNote"></span></p>
+		<div id="autoIncompatibleArea" style="display:none;"><p id="autoIncompatibleDescription">This script is probably incompatible with this converter because of:</p><ul><li id="incompatibleGrant" style="display:none;"><span id="incompatibleGrantBefore">An incompatible </span><code id="grant">@grant</code><span id="incompatibleGrantAfter"> key was defined: </span><code id="grantIncompatibleList"></code></li><li id="incompatibleForEachLoop" style="display:none;"><span id="incompatibleForEachLoopBefore">A </span><code id="foreach">for each</code><span id="incompatibleForEachLoopAfter"> loop was detected. This type of loop is only supported by Greasemonkey and other userscript engines and not directly by the browser.</span></li></ul><p id="autoIncompatibleHowto"><span id="howtoaddcompinfo2">Insert one of the lines to the metadata block at the beginning of your user script to mark the script explicitly as (in)compatible:</span><br /><code id="howtoaddcompinfoCompatible2">// @compatible tfrbmlconv-1 &lt;notes&gt;</code><br /><code id="howtoaddcompinfoIncompatible2">// @incompatible tfrbmlconv-1 &lt;notes&gt;</code></p></div>
+		<form action="" id="mainForm" onsubmit="javascript:return false;">
+			<p id="bookmarkletArea" style="display:none;"><span id="bookmarkletIntro">Here is your bookmarklet: </span><a href="javascript:return%20false%3B" id="bookmarklet"></a><span id="charCountBefore">&nbsp;(</span><span id="charCount"></span><span id="charCountAfter"> characters)</span></p>
+			<p id="bookmarkletDescription" style="display:none;">Drag-and-drop the link to your bookmarks/favorites bar.</p>
+			<p id="bookmarkletManualCopy" style="display:none;"><span id="bookmarkletManualCopyDescription">If you can&#39;t drag-and-drop the above link, add a new bookmark/favorite with the following URL:</span><br /><input type="text" name="bookmarkletCode" id="bookmarkletCode" readonly="readonly" /></p>
+			<p id="bookmarkletOptions" style="display:none;"><span id="bookmarkletOptionsDescription">If the bookmarklet is above the character limit of your browser, you can try enabling the following options:</span><br /><input type="checkbox" name="externalCode" id="externalCode" onchange="javascript:reloadSourcecode();" /><label id="externalCodeLabel" for="externalCode"> Don&#39;t include the complete code into the bookmarklet, load code from external URL</label><br /><input type="checkbox" name="dontCheckPage" id="dontCheckPage" onchange="javascript:reloadSourcecode();" /><label id="dontCheckPageLabel" for="dontCheckPage"> Don&#39;t check if bookmarklet runs on the correct page defined by @include or @match</label></p>
+			<p id="originalSourcecodeArea" style="display:none;"><a href="#" id="originalSourcecodeToggle" onclick="javascript:if(window.document.getElementById('originalSourcecode').style.display == 'none') { window.document.getElementById('originalSourcecode').style.display = 'inline'; } else { window.document.getElementById('originalSourcecode').style.display = 'none'; } return false;">View original source code</a><br /><textarea name="originalSourcecode" id="originalSourcecode" readonly="readonly" rows="25" cols="100" style="display:none;"></textarea></p>
+			<p id="modifiedSourcecodeArea" style="display:none;"><a href="#" id="modifiedSourcecodeToggle" onclick="javascript:if(window.document.getElementById('modifiedSourcecode').style.display == 'none') { window.document.getElementById('modifiedSourcecode').style.display = 'inline'; } else { window.document.getElementById('modifiedSourcecode').style.display = 'none'; } return false;">View Bookmarklet source code</a><br /><textarea name="modifiedSourcecode" id="modifiedSourcecode" readonly="readonly" rows="25" cols="100" style="display:none;"></textarea></p>
+		</form>
+		<p id="inputFormSelect"><a href="#" id="selectUrlForm" onclick="javascript:window.document.getElementById('sourcecodeForm').style.display = 'none'; if(window.document.getElementById('urlForm').style.display == 'none') { window.document.getElementById('urlForm').style.display = 'block'; } else { window.document.getElementById('urlForm').style.display = 'none'; } return false;">Enter URL</a> <a href="#" id="selectSourcecodeForm" onclick="javascript:window.document.getElementById('urlForm').style.display = 'none'; if(window.document.getElementById('sourcecodeForm').style.display == 'none') { window.document.getElementById('sourcecodeForm').style.display = 'block'; } else { window.document.getElementById('sourcecodeForm').style.display = 'none'; } return false;">Enter source code</a></p>
+		<form action="" id="urlForm" style="display:none;">
+			<p id="urlFormElems"><label id="urlLabel" for="url">URL to raw userscript to convert:</label> <input type="text" name="url" id="url" /> <input type="submit" id="urlFormSubmit" value="Convert" /><input type="hidden" id="dontinstall" name="dontinstall" value="1" /></p>
+			<p id="urlFormNote"><span id="urlFormNoteBeforeLink">Note: Due to the </span><a href="https://en.wikipedia.org/wiki/Same-origin_policy" id="urlFormNoteLink" onclick="javascript:window.open(this.href); return false;">same-origin policy</a><span id="urlFormNoteAfterLink">, you only can enter script URLs starting with https://raw.githubusercontent.com/.</span></p>
+		</form>
+		<form action="" id="sourcecodeForm" style="display:none;" onsubmit="javascript:window.document.getElementById('externalCode').setAttribute('disabled', 'disabled');convertSourcecode(window.document.getElementById('sourcecode').value); window.document.getElementById('sourcecodeForm').style.display = 'none';window.document.getElementById('sourcecodeForm').style.display = 'none'; return false;">
+			<p id="sourcecodeFormElems"><label id="sourcecodeLabel" for="sourcecode">Source code to convert:</label><br /><textarea name="sourcecode" id="sourcecode" rows="25" cols="100"></textarea><br /><input type="submit" id="sourcecodeFormSubmit" value="Convert" /></p>
+		</form>
+	</body>
+</html>
