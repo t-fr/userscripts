@@ -10,6 +10,7 @@
 // @compatible     firefox Works with Firefox and Greasemonkey
 // @compatible     chrome Works with Chrome and Tampermonkey
 // @compatible     opera Works with Opera and Tampermonkey Beta or Violent monkey
+// @compatible     tfrbmlconv-1 Works with / Funktioniert mit: Firefox 40, Chrome 44, Opera 31; Does not work with / Funktioniert nicht mit: IE 8, IE 11, Opera 12
 // @oujs:author    tfr
 // @include        http://www.youtube.com/watch*
 // @include        https://www.youtube.com/watch*
