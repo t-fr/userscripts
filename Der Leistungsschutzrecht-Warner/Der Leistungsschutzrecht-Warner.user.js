@@ -9,10 +9,10 @@
 // @license        MIT license; https://pastebin.com/raw.php?i=4TMeeUXC
 // @compatible     firefox Works with Firefox and Greasemonkey
 // @compatible     chrome Works with Chrome and Tampermonkey
-// @compatible     opera Works with Opera and Tampermonkey Beta, but not with Violent monkey
+// @compatible     opera Works with Opera and Tampermonkey Beta or Violent monkey
 // @oujs:author    tfr
 // @include        *
-// @version        3
+// @version        4
 // @grant          GM_xmlhttpRequest
 // @grant          GM_getValue
 // @grant          GM_setValue
@@ -29,7 +29,8 @@
  * MIT-Lizenz: https://pastebin.com/raw.php?i=4TMeeUXC
  */
 
-/* Version 3: Update license information
+/* Version 4: Replaced for-each-loop, works now also with Opera and Violentmonkey
+ * Version 3: Update license information
  * Version 2: update metadata
  */
 
@@ -75,8 +76,9 @@ var BlacklistA = Blacklist.split(",");
 
 /* Stelle fest, ob Seite in Blacklist ist */
 var IsInBlacklist = false;
-for each(BlacklistE in BlacklistA) {
-  if(window.location.host == BlacklistE || window.location.host.indexOf("." + BlacklistE) > -1) {
+for (var i = 0; i < BlacklistA.length; i++)
+{
+  if(window.location.host == BlacklistA[i] || window.location.host.indexOf("." + BlacklistA[i]) > -1) {
     IsInBlacklist = true;
   }
 }
