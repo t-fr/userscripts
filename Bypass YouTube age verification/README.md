@@ -9,6 +9,7 @@ Successfully tested with:
 - [Opera 31.0.1889.99](http://www.opera.com/de/computer) with [Violent monkey 273.827](https://addons.opera.com/extensions/details/violent-monkey/)
 
 **Bookmarklet**
+
 Don't have a userscript manager like Greasemonkey, Tampermonkey or Violentmonkey installed? You can also [install the userscript as a bookmarklet](https://cdn.rawgit.com/t-fr/userscripts/040475e22ff35e3f2328b2f70b6da01d4697b35c/create-bookmarklet/create-bookmarklet.html?url=https%3A%2F%2Fcdn.rawgit.com%2Ft-fr%2Fuserscripts%2Ff2678d2c6313daa821e96a49983024322e45414a%2FBypass%2520YouTube%2520age%2520verification%2FBypass%2520YouTube%2520age%2520verification.user.js&dontinstall=1).
 - Works with Firefox 40, Chrome 44, Opera 31
 - Does not work with IE 8, IE 11, Opera 12
