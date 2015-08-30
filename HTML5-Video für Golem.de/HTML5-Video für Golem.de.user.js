@@ -17,7 +17,7 @@
 // @grant          GM_xmlhttpRequest
 // ==/UserScript==
 
-/* This script is dual-licensed under CC0 and the MIT license.
+/* This script is dual-licensed under CC0 and the MIT license. 
  * You can choose which one you want to use.
  * CC0 license: http://creativecommons.org/publicdomain/zero/1.0/deed.en
  * MIT license: https://pastebin.com/raw.php?i=4TMeeUXC
